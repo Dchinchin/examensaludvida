@@ -27,6 +27,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (!('documentPictureInPicture' in window)) {
+                window.documentPictureInPicture = {};
+              }
+            `,
+          }}
+        />
+        <nav className="p-5 border-b border-gray-300">
+          <a href="/medicos" className="mr-4 text-blue-600 hover:underline">Médicos</a>
+          <a href="/pacientes" className="mr-4 text-blue-600 hover:underline">Pacientes</a>
+          <a href="/citas" className="mr-4 text-blue-600 hover:underline">Citas</a>
+        </nav>
         {children}
       </body>
     </html>
